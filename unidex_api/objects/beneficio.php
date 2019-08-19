@@ -1,5 +1,5 @@
 <?php
-class Product{
+class Beneficio{
  
     // database connection and table name
     private $conn;
@@ -28,14 +28,9 @@ class Product{
 		$query = "SELECT
 					ben.id, 
 					ben.titulo, 
-					ben.descripcion, 
-					ben.solicitable, 
-					ben.category_id
+					ben.descripcion
 				FROM
-					" . $this->table_name . " ben
-					LEFT JOIN
-						beneficios_cat cat
-							ON ben.id_cat = cat.id";
+					" . $this->table_name . " ben";
 	 
 		// prepare query statement
 		$stmt = $this->conn->prepare($query);

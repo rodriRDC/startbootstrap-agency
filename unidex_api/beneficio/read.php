@@ -13,10 +13,10 @@ $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$product = new Product($db);
+$beneficio = new Beneficio($db);
  
 // query products
-$stmt = $product->read();
+$stmt = $beneficio->read();
 $num = $stmt->rowCount();
  
 // check if more than 0 record found

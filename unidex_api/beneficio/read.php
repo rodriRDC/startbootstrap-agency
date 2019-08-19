@@ -23,8 +23,8 @@ $num = $stmt->rowCount();
 if($num>0){
  
     // products array
-    $products_arr=array();
-    $products_arr["records"]=array();
+    $beneficios_arr=array();
+    $beneficios_arr["records"]=array();
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
@@ -37,21 +37,18 @@ if($num>0){
  
         $product_item=array(
             "id" => $id,
-            "name" => $name,
-            "description" => html_entity_decode($description),
-            "price" => $price,
-            "category_id" => $category_id,
-            "category_name" => $category_name
+            "titulo" => $titulo,
+            "descripcion" => $descripcion
         );
  
-        array_push($products_arr["records"], $product_item);
+        array_push($beneficios_arr["records"], $product_item);
     }
  
     // set response code - 200 OK
     http_response_code(200);
  
     // show products data in json format
-    echo json_encode($products_arr);
+    echo json_encode($beneficios_arr);
 
 }
 else{

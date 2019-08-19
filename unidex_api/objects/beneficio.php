@@ -3,16 +3,18 @@ class Product{
  
     // database connection and table name
     private $conn;
-    private $table_name = "products";
+    private $table_name = "beneficios";
  
     // object properties
     public $id;
-    public $name;
-    public $description;
-    public $price;
-    public $category_id;
-    public $category_name;
-    public $created;
+    public $id_tipo;
+    public $imagen;
+    public $titulo;
+    public $descripcion;
+    //public $sucursales;
+    public $solicitable;
+	public $valido_desde;
+	public $valido_hasta;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -24,14 +26,16 @@ class Product{
 	 
 		// select all query
 		$query = "SELECT
-					*
+					ben.id, 
+					ben.titulo, 
+					ben.descripcion, 
+					ben.solicitable, 
+					ben.category_id
 				FROM
-					" . $this->table_name . " p
+					" . $this->table_name . " ben
 					LEFT JOIN
-						categories c
-							ON p.category_id = c.id
-				ORDER BY
-					p.created DESC";
+						beneficios_cat cat
+							ON ben.id_cat = cat.id";
 	 
 		// prepare query statement
 		$stmt = $this->conn->prepare($query);

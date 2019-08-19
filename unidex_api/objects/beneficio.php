@@ -24,7 +24,7 @@ class Product{
 	 
 		// select all query
 		$query = "SELECT
-					c.name as category_name, p.id, p.name, p.description, p.price, p.category_id, p.created
+					*
 				FROM
 					" . $this->table_name . " p
 					LEFT JOIN

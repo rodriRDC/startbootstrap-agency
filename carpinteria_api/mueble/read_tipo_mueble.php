@@ -29,7 +29,8 @@ if($num>0){
  
         $product_item=array(
             "id" => $id,
-            "descripcion" => $descripcion
+            "descripcion" => $descripcion,
+            "detalle" => $detalle
         );
  
         array_push($tipo_mueble_arr["records"], $product_item);

@@ -26,6 +26,7 @@ if(
 ){
     // set product property values
     $tipo_mueble->descripcion = $data->descripcion;
+    $tipo_mueble->detalle = $data->detalle;
     
     // create the product
     if($tipo_mueble->create()){

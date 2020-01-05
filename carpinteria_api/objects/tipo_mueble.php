@@ -8,7 +8,7 @@ class Tipo_mueble{
     // object properties
     public $id;
     public $descipcion;
-    public $detalle
+    public $detalle;
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -49,8 +49,8 @@ class Tipo_mueble{
         $stmt = $this->conn->prepare($query);
     
         // sanitize
-        $this->name=htmlspecialchars(strip_tags($this->descripcion));
-        $this->price=htmlspecialchars(strip_tags($this->detalle));
+        $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
+        $this->detalle=htmlspecialchars(strip_tags($this->detalle));
     
         // bind values
         $stmt->bindParam(":descripcion", $this->descripcion);

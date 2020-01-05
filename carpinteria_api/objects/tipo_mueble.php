@@ -8,6 +8,7 @@ class Tipo_mueble{
     // object properties
     public $id;
     public $descipcion;
+    public $detalle
  
     // constructor with $db as database connection
     public function __construct($db){
@@ -20,7 +21,8 @@ class Tipo_mueble{
 		// select all query
 		$query = "SELECT
 					tm.id, 
-					tm.descripcion
+					tm.descripcion,
+                    tm.detalle
 				FROM
 					" . $this->table_name . " tm";
 	 
@@ -31,6 +33,36 @@ class Tipo_mueble{
 		$stmt->execute();
 	 
 		return $stmt;
-	}
+    }
+    
+    // create product
+    function create(){
+    
+        // query to insert record
+        //INSERT INTO TIPO_MUEBLE(descripcion,detalle) VALUES ('asd','asd')
+        $query = "INSERT INTO
+                    " . $this->table_name . "
+                SET
+                    descripcion=:descripcion, detalle=:detalle";
+    
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+    
+        // sanitize
+        $this->name=htmlspecialchars(strip_tags($this->descripcion));
+        $this->price=htmlspecialchars(strip_tags($this->detalle));
+    
+        // bind values
+        $stmt->bindParam(":descripcion", $this->descripcion);
+        $stmt->bindParam(":detalle", $this->detalle);
+    
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+    
+        return false;
+        
+    }
 }
 ?>

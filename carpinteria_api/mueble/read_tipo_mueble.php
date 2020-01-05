@@ -49,6 +49,6 @@ else{
  
     // tell the user no beneficios found
     echo json_encode(
-        array("message" => "No products found.")
+        array("message" => "No hay tipos de muebles para mostrar.")
     );
 }

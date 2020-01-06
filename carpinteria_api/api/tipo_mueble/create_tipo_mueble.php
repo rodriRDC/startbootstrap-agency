@@ -7,10 +7,10 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 // get database connection
-include_once '../config/database.php';
+include_once '../../config/database.php';
  
 // instantiate tipo_mueble object
-include_once '../objects/tipo_mueble.php';
+include_once '../../objects/tipo_mueble.php';
 
 $database = new Database();
 $db = $database->getConnection();

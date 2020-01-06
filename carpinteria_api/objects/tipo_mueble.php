@@ -88,5 +88,37 @@ class Tipo_mueble{
         return false;
         
     }
+
+    // update the product
+    function update(){
+    
+        // update query
+        $query = "UPDATE
+                    " . $this->table_name . "
+                SET
+                    descripcion = :descripcion,
+                    detalle = :detalle
+                WHERE
+                    id = :id";
+    
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // sanitize
+        $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
+        $this->detalle=htmlspecialchars(strip_tags($this->detalle));
+    
+        // bind new values
+        $stmt->bindParam(':descripcion', $this->descripcion);
+        $stmt->bindParam(':detalle', $this->detalle);
+        $stmt->bindParam(':id', $this->id);
+    
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }
+    
+        return false;
+    }
 }
 ?>

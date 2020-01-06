@@ -7,8 +7,8 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 // include database and object file
-include_once '../config/database.php';
-include_once '../objects/tipo_mueble.php';
+include_once '../../config/database.php';
+include_once '../../objects/tipo_mueble.php';
  
 // get database connection
 $database = new Database();

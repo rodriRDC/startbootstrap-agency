@@ -5,14 +5,14 @@ header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/tipo_mueble.php';
+include_once '../../objects/tipo_mueble_pdo.php';
  
 // instantiate database and tipo_mueble object
 $database = new Database();
 $db = $database->getConnection();
  
 // initialize object
-$tipo_mueble = new Tipo_mueble($db);
+$tipo_mueble = new Tipo_mueble_pdo($db);
  
 // query tipos de muebles
 $stmt = $tipo_mueble->read();

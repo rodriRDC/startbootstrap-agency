@@ -8,14 +8,14 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
  
 // include database and object file
 include_once '../../config/database.php';
-include_once '../../objects/tipo_mueble.php';
+include_once '../../objects/tipo_mueble_pdo.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // prepare product object
-$tipo_mueble = new Tipo_mueble($db);
+$tipo_mueble = new Tipo_mueble_pdo($db);
  
 // get product id
 $data = json_decode(file_get_contents("php://input"));

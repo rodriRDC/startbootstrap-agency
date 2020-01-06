@@ -1,5 +1,5 @@
 <?php
-class Tipo_mueble{
+class Tipo_mueble_pdo{
  
     // database connection and table name
     private $conn;
@@ -39,7 +39,6 @@ class Tipo_mueble{
     function create(){
     
         // query to insert record
-        //INSERT INTO TIPO_MUEBLE(descripcion,detalle) VALUES ('asd','asd')
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET

@@ -10,12 +10,12 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../../config/database.php';
  
 // instantiate tipo_mueble object
-include_once '../../objects/tipo_mueble.php';
+include_once '../../objects/tipo_mueble_pdo.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
-$tipo_mueble = new Tipo_mueble($db);
+$tipo_mueble = new Tipo_mueble_pdo($db);
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"));

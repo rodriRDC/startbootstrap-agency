@@ -130,7 +130,7 @@ class Tipo_mueble_pdo{
                     " . $this->table_name . " tm
                 WHERE
                     tm.id = :id";*/
-        $query = "SELECT id, descripcion, detalle FROM TIPO_MUEBLE WHERE id = 1";
+        $query = "SELECT descripcion, detalle FROM TIPO_MUEBLE WHERE id = 1";
     
         // prepare query statement
         $stmt = $this->conn->prepare( $query );
@@ -145,7 +145,6 @@ class Tipo_mueble_pdo{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         // set values to object properties
-        $this->id = $row['id'];
         $this->descripcion = $row['descripcion'];
         $this->detalle = $row['detalle'];
     }

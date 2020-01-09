@@ -24,19 +24,12 @@ $tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
 $tipoMueble->readOne();
  
 if($tipoMueble->id!=null){
-    // create array
-    $tipoMueble_arr = array(
-        "id" =>  $tipoMueble->id,
-        "descripcion" => $tipoMueble->descripcion,
-        "detalle" => $tipoMueble->detalle
- 
-    );
  
     // set response code - 200 OK
     http_response_code(200);
  
     // make it json format
-    echo json_encode($tipoMueble_arr);
+    echo json_encode($tipoMueble);
 }
  
 else{

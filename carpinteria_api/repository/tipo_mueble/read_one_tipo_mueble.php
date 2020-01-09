@@ -20,23 +20,12 @@ $tipoMueble = new TipoMueble($db);
 // set ID property of record to read
 $tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
  
-// read the details of product to be edited
-$tipoMueble->readOne();
- 
-if($tipoMueble->id!=null){
+
  
     // set response code - 200 OK
     http_response_code(200);
  
     // make it json format
-    echo json_encode($tipoMueble);
-}
- 
-else{
-    // set response code - 404 Not found
-    http_response_code(404);
- 
-    // tell the user product does not exist
-    echo json_encode(array("message" => "El tipo de mueble no existe."));
-}
+    echo json_encode($$tipoMueble->readOne());
+
 ?>

@@ -129,7 +129,7 @@ class Tipo_mueble_pdo{
                 FROM
                     " . $this->table_name . " tm
                 WHERE
-                    tm.id = ?";
+                    tm.id = :id";
     
         // prepare query statement
         $stmt = $this->conn->prepare( $query );

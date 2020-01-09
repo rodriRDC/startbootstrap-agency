@@ -23,7 +23,7 @@ $tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
 // read the details of product to be edited
 $tipoMueble->readOne();
  
-if($tipoMueble->name!=null){
+if($tipoMueble->id!=null){
     // create array
     $tipoMueble_arr = array(
         "id" =>  $tipoMueble->id,

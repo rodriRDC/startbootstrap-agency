@@ -93,12 +93,12 @@ class Tipo_mueble_pdo{
     
         // update query
         $query = "UPDATE
-                    " . $this->table_name . "
+                    " . $this->table_name . " tm 
                 SET
                     descripcion = :descripcion,
                     detalle = :detalle
                 WHERE
-                    id = :id";
+                    id = ?";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -129,9 +129,7 @@ class Tipo_mueble_pdo{
                 FROM
                     " . $this->table_name . " tm
                 WHERE
-                    tm.id = ?
-                LIMIT
-                    0,1";
+                    tm.id = :id";
     
         // prepare query statement
         $stmt = $this->conn->prepare( $query );

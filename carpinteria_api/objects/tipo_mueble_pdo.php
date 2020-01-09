@@ -124,12 +124,13 @@ class Tipo_mueble_pdo{
     function readOne(){
     
         // query to read single record
-        $query = "SELECT
+        /*$query = "SELECT
                     tm.id, tm.descripcion, tm.detalle
                 FROM
                     " . $this->table_name . " tm
                 WHERE
-                    tm.id = :id";
+                    tm.id = :id";*/
+        $query = "SELECT id, descripcion, detalle FROM TIPO_MUEBLE WHERE id = 1";
     
         // prepare query statement
         $stmt = $this->conn->prepare( $query );

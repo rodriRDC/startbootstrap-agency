@@ -93,12 +93,12 @@ class Tipo_mueble_pdo{
     
         // update query
         $query = "UPDATE
-                    " . $this->table_name . " tm 
+                    " . $this->table_name . "
                 SET
                     descripcion = :descripcion,
                     detalle = :detalle
                 WHERE
-                    id = ?";
+                    id = :id";
     
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -125,11 +125,11 @@ class Tipo_mueble_pdo{
     
         // query to read single record
         $query = "SELECT
-                    tm.id, tc.descripcion, tm.detalle
+                    tm.id, tm.descripcion, tm.detalle
                 FROM
                     " . $this->table_name . " tm
                 WHERE
-                    tm.id = :id";
+                    tm.id = ?";
     
         // prepare query statement
         $stmt = $this->conn->prepare( $query );

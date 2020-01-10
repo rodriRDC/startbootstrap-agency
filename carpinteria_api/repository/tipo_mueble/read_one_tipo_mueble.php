@@ -21,9 +21,11 @@ $tipoMueble = new TipoMueble($db);
 //$tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 $tipoMueble->id = 1;
+$tipoMueble->descripcion = "sarasa";
+$tipoMueble->detalle = "detalle sarasa";
  
 // read the details of product to be edited
-$tipoMueble->readOne();
+//$tipoMueble->readOne();
  
 if($tipoMueble->descripcion!=null){
  

@@ -7,7 +7,7 @@ class Tipo_mueble_pdo{
  
     // object properties
     public $id;
-    public $descipcion;
+    public $descripcion;
     public $detalle;
  
     // constructor with $db as database connection
@@ -122,28 +122,29 @@ class Tipo_mueble_pdo{
 
     // used when filling up the update product form
     function readOne(){
-    
+ 
         // query to read single record
-        /*$query = "SELECT
-                    tm.id, tm.descripcion, tm.detalle
+        $query = "SELECT
+                    id, descripcion, detalle
                 FROM
-                    " . $this->table_name . " tm
+                    " . $this->table_name . "
                 WHERE
-                    tm.id = :id";*/
-        $query = "SELECT descripcion, detalle FROM TIPO_MUEBLE WHERE id = 1";
-    
+                    id = ?
+                LIMIT
+                    0,1";
+     
         // prepare query statement
         $stmt = $this->conn->prepare( $query );
-    
+     
         // bind id of product to be updated
         $stmt->bindParam(1, $this->id);
-    
+     
         // execute query
         $stmt->execute();
-    
+     
         // get retrieved row
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+     
         // set values to object properties
         $this->descripcion = $row['descripcion'];
         $this->detalle = $row['detalle'];

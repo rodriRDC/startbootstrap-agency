@@ -18,7 +18,7 @@ $db = $database->getConnection();
 $tipoMueble = new TipoMueble($db);
  
 // set ID property of record to read
-$tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
+$tipoMueble->id = 1;
  
 
  
@@ -26,6 +26,6 @@ $tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
     http_response_code(200);
  
     // make it json format
-    echo json_encode($$tipoMueble->readOne());
+    echo json_encode($tipoMueble->readOne());
 
 ?>

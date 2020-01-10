@@ -25,7 +25,7 @@ $tipoMueble->id = 1;
 // read the details of product to be edited
 $tipoMueble->readOne();
  
-if($tipoMueble->id!=null){
+if($tipoMueble->descripcion!=null){
     // create array
     $tipoMueble_arr = array(
         "id" =>  $tipoMueble->id,

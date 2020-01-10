@@ -122,31 +122,22 @@ class Tipo_mueble_pdo{
 
     // used when filling up the update product form
     function readOne(){
- 
-        // query to read single record
-        $query = "SELECT
-                    id, descripcion, detalle
-                FROM
-                    " . $this->table_name . "
-                WHERE
-                    id = :id";
-     
-        // prepare query statement
-        $stmt = $this->conn->prepare( $query );
-     
-        // bind id of product to be updated
-        $stmt->bindParam(1, $this->id);
-     
-        // execute query
-        $stmt->execute();
-     
-        // get retrieved row
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-     
-        // set values to object properties
-        $this->id = $row['id'];
-        $this->descripcion = $row['descripcion'];
-        $this->detalle = $row['detalle'];
+	 
+		// select all query
+		$query = "SELECT
+					tm.id, 
+					tm.descripcion,
+                    tm.detalle
+				FROM
+					" . $this->table_name . " tm WHERE id = 1";
+	 
+		// prepare query statement
+		$stmt = $this->conn->prepare($query);
+	 
+		// execute query
+		$stmt->execute();
+	 
+		return $stmt;
     }
 }
 ?>

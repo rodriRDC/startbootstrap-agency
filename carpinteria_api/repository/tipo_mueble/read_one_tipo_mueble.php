@@ -26,18 +26,12 @@ $tipoMueble->id = 1;
 $tipoMueble->readOne();
  
 if($tipoMueble->descripcion!=null){
-    // create array
-    $tipoMueble_arr = array(
-        "id" =>  $tipoMueble->id,
-        "descripcion" => $tipoMueble->descripcion,
-        "detalle" => $tipoMueble->detalle 
-    );
  
     // set response code - 200 OK
     http_response_code(200);
  
     // make it json format
-    echo json_encode($tipoMueble_arr);
+    echo json_encode($tipoMueble);
 }
  
 else{

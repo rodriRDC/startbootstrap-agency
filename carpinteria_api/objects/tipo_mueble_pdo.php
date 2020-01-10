@@ -129,9 +129,7 @@ class Tipo_mueble_pdo{
                 FROM
                     " . $this->table_name . "
                 WHERE
-                    id = ?
-                LIMIT
-                    0,1";
+                    id = :id";
      
         // prepare query statement
         $stmt = $this->conn->prepare( $query );

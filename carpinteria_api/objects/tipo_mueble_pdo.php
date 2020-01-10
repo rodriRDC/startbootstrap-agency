@@ -24,7 +24,7 @@ class Tipo_mueble_pdo{
 					tm.descripcion,
                     tm.detalle
 				FROM
-					" . $this->table_name . " tm";
+					" . $this->table_name . " tm WHERE tm.id = 1";
 	 
 		// prepare query statement
 		$stmt = $this->conn->prepare($query);

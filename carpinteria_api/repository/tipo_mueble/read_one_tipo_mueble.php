@@ -18,12 +18,14 @@ $db = $database->getConnection();
 $tipoMueble = new TipoMueble($db);
  
 // set ID property of record to read
-$tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
+//$tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();
+
+$tipoMueble->id = 1;
  
 // read the details of product to be edited
 $tipoMueble->readOne();
  
-if($tipoMueble->name!=null){
+if($tipoMueble->id!=null){
     // create array
     $tipoMueble_arr = array(
         "id" =>  $tipoMueble->id,

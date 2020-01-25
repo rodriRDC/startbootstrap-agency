@@ -132,10 +132,20 @@ class Tipo_mueble_pdo{
 					" . $this->table_name . " tm WHERE id = 1";
 	 
 		// prepare query statement
-		$stmt = $this->conn->prepare($query);
-	 
-		// execute query
-		$stmt->execute();
+        $stmt = $this->conn->prepare( $query );
+ 
+        // bind id of product to be updated
+        $stmt->bindParam(1, $this->id);
+     
+        // execute query
+        $stmt->execute();
+     
+        // get retrieved row
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // set values to object properties
+        $this->descripcion = $row['descripcion'];
+        $this->detalle = $row['detalle'];
 	 
 		return $stmt;
     }

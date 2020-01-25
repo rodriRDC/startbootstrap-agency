@@ -103,13 +103,6 @@ class Tipo_mueble_pdo{
         // prepare query statement
         $stmt = $this->conn->prepare($query);
     
-        // sanitize
-        $this->descripcion=htmlspecialchars(strip_tags($this->descripcion));
-        $this->detalle=htmlspecialchars(strip_tags($this->detalle));
-    
-        // bind new values
-        $stmt->bindParam(':descripcion', $this->descripcion);
-        $stmt->bindParam(':detalle', $this->detalle);
         $stmt->bindParam(':id', $this->id);
     
         // execute the query

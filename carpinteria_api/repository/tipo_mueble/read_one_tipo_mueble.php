@@ -16,7 +16,7 @@ $database = new Database();
 $db = $database->getConnection();
  
 // prepare product object
-$tipoMueble = new TipoMueble($db);
+$tipoMueble = new Tipo_mueble_pdo($db);
  
 // set ID property of record to read
 $tipoMueble->id = isset($_GET['id']) ? $_GET['id'] : die();

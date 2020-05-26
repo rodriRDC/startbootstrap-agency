@@ -30,7 +30,7 @@ curl_close($ch);
 
 $head = "<style>.shepherd-modal-overlay-container{filter:blur(1px);height:100%!important;opacity:0.6!important;}</style><link rel='stylesheet' href='https://shepherdjs.dev/dist/css/shepherd.css'>";
 $body = "
-<body onmouseover="printID(this.id);">
+<body onmouseover='printID(this.id);'>
 ";
 $content = str_replace('</head>', $head.'</head>', $result);
 $content = str_replace('<body>', $body, $content);
@@ -44,7 +44,5 @@ function printID(e){
   alert(e.id); 
   alert(e.class); 
 };
-
-</script> 
 </script>";
 echo $script;

@@ -38,6 +38,9 @@ echo $content;
 $script = "<script src='https://shepherdjs.dev/dist/js/shepherd.js'></script>";
 $script .= "<script>
 
+
+$(document).ready(onPageReady);
+
 function printID(e){
   e = e || window.event;
   e = e.target || e.scrElement;

@@ -30,89 +30,21 @@ curl_close($ch);
 
 $head = "<style>.shepherd-modal-overlay-container{filter:blur(1px);height:100%!important;opacity:0.6!important;}</style><link rel='stylesheet' href='https://shepherdjs.dev/dist/css/shepherd.css'>";
 $body = "
-<audio class='audio'>
-    <source src='buscar.m4a' type='audio/ogg'>
-</audio>
-<audio class='audio'>
-    <source src='elegir.m4a' type='audio/ogg'>
-</audio>
+<body onmouseover="printID(this.id);">
 ";
 $content = str_replace('</head>', $head.'</head>', $result);
-$content = str_replace('</body>', $body.'</body>', $content);
+$content = str_replace('<body>', $body, $content);
 echo $content;
 $script = "<script src='https://shepherdjs.dev/dist/js/shepherd.js'></script>";
 $script .= "<script>
 
-var flag=true;
+function printID(e){
+  e = e || window.event;
+  e = e.target || e.scrElement;
+  alert(e.id); 
+  alert(e.class); 
+};
 
-$('body').click(function() {	
-	if (flag) {		
-		$('.audio')[0].play();
-		flag = false;
-	}
-});
-
-const tour = new Shepherd.Tour({
-  defaultStepOptions: {
-    cancelIcon: {
-      enabled: true
-    },
-    classes: 'class-1 class-2',
-    scrollTo: { behavior: 'smooth', block: 'center' }
-  }
-});
-
-tour.addStep({
-  title: 'Buscar una receta',
-  text: `Aca podes buscarla por el nombre`,
-  attachTo: {
-    element: '.search-widget__input',
-    on: 'bottom'
-  },
-  buttons: [
-    {
-      action() {
-        return this.back();
-      },
-      classes: 'shepherd-button-secondary',
-      text: 'Back'
-    },
-    {
-      action() {
-        $('.audio')[1].play();
-        return this.next();
-      },
-      text: 'Next'
-    }
-  ],
-  id: 'creating'
-});
-
-tour.addStep({
-  title: 'Buscar una receta',
-  text: `O podes abrirla directamente aca`,
-  attachTo: {
-    element: '.feed__photo',
-    on: 'bottom'
-  },
-  buttons: [
-    {
-      action() {
-        return this.back();
-      },
-      classes: 'shepherd-button-secondary',
-      text: 'Back'
-    },
-    {
-      action() {
-        return this.next();
-      },
-      text: 'Next'
-    }
-  ],
-  id: 'creating'
-});
-
-tour.start();
+</script> 
 </script>";
 echo $script;

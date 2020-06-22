@@ -45,27 +45,10 @@ function printID(e){
   e = e || window.event;
   e = e.target || e.scrElement;
   alert(e.id); 
-  alert(e.attr('class')); 
 };
 
 
 
-function onPageReady () {
-  $('#splash_primary_action').bind('contextmenu', function(event) {
-   console.log(event);
-   // Check for right click
-   if (event.which == 3){ // can also use button instead of which.
-     // prevent default action.
-     event.preventDefault(); 
-      // simulate left click
-    $(this).click();
-   }
- });
-
- $('#splash_primary_action').click(function (event) {
-   console.log(' Left Clicked !!',event)
- })
-}
 
 
 </script>";
